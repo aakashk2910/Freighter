@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../layout/head.ejs %>
+</head>
+
+<body class="fix-header fix-sidebar">
+<!-- Preloader - style you can find in spinners.css -->
+<div class="preloader">
+  <svg class="circular" viewBox="25 25 50 50">
+    <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+</div>
+<!-- Main wrapper  -->
+<div id="main-wrapper">
+
+  <% include ../layout/header.ejs%>
+
+  <% include ../layout/sidebars/sidebar-controller.ejs%>
+
+  <!-- Page wrapper  -->
+  <div class="page-wrapper">
+    <!-- Bread crumb -->
+    <div class="row page-titles">
+      <div class="col-md-5 align-self-center">
+        <h3 class="text-primary"><%= heading %></h3> </div>
+      <div class="col-md-7 align-self-center">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+          <li class="breadcrumb-item active"><%= heading %></li>
+        </ol>
+      </div>
+    </div>
+    <!-- End Bread crumb -->
+    <!-- Container fluid  -->
+    <div class="container-fluid">
+      <!-- Start Page Content -->
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card p-30">
+            <div class="media">
+              <div class="media-left meida media-middle">
+                <span><i class="fa fa-road f-s-40 color-success"></i></span>
+              </div>
+              <div class="media-body media-text-right">
+                <h2>1178</h2>
+                <p class="m-b-0">Fleets</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card p-30">
+            <div class="media">
+              <div class="media-left meida media-middle">
+                <span><i class="fa fa-calendar-check-o f-s-40 color-success"></i></span>
+              </div>
+              <div class="media-body media-text-right">
+                <h2>60 hrs</h2>
+                <p class="m-b-0">Total Working Hours</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card p-30">
+            <div class="media">
+              <div class="media-left meida media-middle">
+                <span><i class="fa fa-clock-o f-s-40 color-success"></i></span>
+              </div>
+              <div class="media-body media-text-right">
+                <h2>4 hrs</h2>
+                <p class="m-b-0">Today's Working Hours</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End PAge Content -->
+    </div>
+    <!-- End Container fluid  -->
+    <% include ../layout/footer.ejs %>
+  </div>
+</div>
+<!-- End Wrapper -->
+<% include ../layout/foot.ejs %>
+</body>
+
+</html>

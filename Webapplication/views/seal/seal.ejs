@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../layout/head.ejs %>
+    <link href="css/seal-tabs.css" rel="stylesheet">
+</head>
+
+<body class="fix-header fix-sidebar">
+<!-- Preloader - style you can find in spinners.css -->
+<div class="preloader">
+    <svg class="circular" viewBox="25 25 50 50">
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+</div>
+<!-- Main wrapper  -->
+<div id="main-wrapper">
+
+    <% include ../layout/header.ejs%>
+
+    <% include ../layout/sidebars/sidebar-driver.ejs%>
+
+    <!-- Page wrapper  -->
+    <div class="page-wrapper">
+        <!-- Bread crumb -->
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+                <h3 class="text-primary"><%= heading %></h3> </div>
+            <div class="col-md-7 align-self-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                    <li class="breadcrumb-item active"><%= heading %></li>
+                </ol>
+            </div>
+        </div>
+        <!-- End Bread crumb -->
+        <!-- Container fluid  -->
+        <div class="container-fluid">
+            <!-- Start Page Content -->
+
+
+
+                <section>
+                    <% if (lock == 1) { %>
+                        <input type="radio" id="upload-photo" value="1" name="tractor" checked='checked' />
+                        <input type="radio" id="drivers-license" value="2" name="tractor" />
+                        <input type="radio" id="special-license" value="3" name="tractor" />
+                        <input type="radio" id="secure-lock" value="4" name="tractor" />
+                        <nav>
+                            <label for="upload-photo" class='fa fa-camera-retro'></label>
+                            <label for="drivers-license" class='fa fa-drivers-license'></label>
+                            <label for="special-license" class='fa fa-drivers-license-o'></label>
+                            <label for="secure-lock" class='fa fa-lock'></label>
+                        </nav>
+                    <% } else { %>
+                        <input type="radio" id="upload-photo" value="1" name="tractor" />
+                        <input type="radio" id="drivers-license" value="2" name="tractor" />
+                        <input type="radio" id="special-license" value="3" name="tractor" />
+                        <input type="radio" id="secure-lock" value="4" name="tractor" checked='checked' />
+                    <% } %>
+                    <article class='uno'>
+                        <h2>
+                            <i class="fa fa-user-circle f-s-30"></i>
+                        </h2>
+                        <div class="card" >
+                            <div class="card-body">
+                                <h4 class="card-title">Upload</h4>
+                                <h6 class="card-subtitle">dropzone</h6>
+                                <form action="#" class="dropzone">
+                                    <div class="fallback">
+                                        <input name="file" type="file" multiple />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <footer class="pull-right" style="margin-bottom: 5%">
+                            <nav>
+                                <label for="drivers-license" class='fa fa-paper-plane'></label>
+                            </nav>
+                        </footer>
+                    </article>
+
+                    <article class='dos'>
+                        <p>Driver's License</p>
+                        <div class="card" >
+                            <div class="card-body">
+                                <h4 class="card-title">Upload</h4>
+                                <h6 class="card-subtitle">dropzone</h6>
+                                <form action="#" class="dropzone">
+                                    <div class="fallback">
+                                        <input name="file" type="file" multiple />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <footer class="pull-right" style="margin-bottom: 5%">
+                            <nav>
+                                <label for="special-license" class='fa fa-paper-plane'></label>
+                            </nav>
+                        </footer>
+                    </article>
+
+                    <article class='tres'>
+                        <p>Special license</p>
+                        <div class="card" >
+                            <div class="card-body">
+                                <h4 class="card-title">Upload</h4>
+                                <h6 class="card-subtitle">dropzone</h6>
+                                <form action="#" class="dropzone">
+                                    <div class="fallback">
+                                        <input name="file" type="file" multiple />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <footer class="pull-right" style="margin-bottom: 5%">
+                            <nav>
+                                <label for="secure-lock" class='fa fa-paper-plane'></label>
+                            </nav>
+                        </footer>
+                    </article>
+
+                    <article class='cuatro'>
+                        <% if (lock == 1) {%>
+                            <p>Secure Lock</p>
+                        <% } %>
+                        <h2><img src="images/favicon.jpeg"></h2>
+                        <% if (lock == 0) { %>
+                            <h2><i class="fa fa fa-check success"></i> <i class="fa fa fa-check success"></i> <i class="fa fa fa-check success"></i></h2>
+                            <h2>
+                                <button type="button" class="btn btn-success">
+                                    <i class="fa fa-lock"></i>
+                                    Locked
+                                </button>
+                            </h2>
+
+                            <h2>
+                                <a href="https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=http://www.freighter.com:4000/dashboard-controllers" target="_blank">
+                                    <button type="button" class="btn btn-success">
+                                        <i class="fa fa-qrcode"></i>
+                                        Get QrCode
+                                    </button>
+                                </a>
+                            </h2>
+                        <% } else { %>
+                            <h2><i class="fa fa fa-check success"></i> <i class="fa fa fa-check success"></i> </h2>
+                            <h2>
+                                <a href="/locked">
+                                    <button type="button" class="btn btn-success" id="toastr-success-top-center">
+                                        <i class="fa fa-check"></i>
+                                        Lock
+                                    </button>
+                                </a>
+                            </h2>
+                        <% } %>
+                    </article>
+                </section>
+
+
+        </div>
+        <!-- End Container fluid  -->
+        <% include ../layout/footer.ejs %>
+    </div>
+</div>
+<!-- End Wrapper -->
+<% include ../layout/foot.ejs %>
+</body>
+
+</html>

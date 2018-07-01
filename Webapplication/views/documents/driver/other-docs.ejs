@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../../layout/head.ejs %>
+</head>
+
+<body class="fix-header fix-sidebar">
+<!-- Preloader - style you can find in spinners.css -->
+<div class="preloader">
+    <svg class="circular" viewBox="25 25 50 50">
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+</div>
+<!-- Main wrapper  -->
+<div id="main-wrapper">
+
+    <% include ../../layout/header.ejs%>
+
+    <% include ../../layout/sidebars/sidebar-driver.ejs%>
+
+    <div class="page-wrapper">
+        <!-- Bread crumb -->
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+                <h3 class="text-primary"><%= heading %></h3> </div>
+            <div class="col-md-7 align-self-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                    <li class="breadcrumb-item active"><%= heading %></li>
+                </ol>
+            </div>
+        </div>
+        <!-- End Bread crumb -->
+        <!-- Container fluid  -->
+        <div class="container-fluid">
+            <!-- Start Page Content -->
+            <div class="row">
+                <!-- Column -->
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="home" role="tabpanel">
+                                <div class="card-body">
+                                    <div class="sl-item">
+                                        <div class="sl-right">
+                                            <div><a href="#" class="link">Other Documents</a> <span class="sl-date"><small>5 minutes ago</small></span>
+                                                <p></p>
+                                                <div class="row">
+                                                    <% for (var i=0; i < otherDocs.length; i++ ) { %>
+                                                    <div class="col-lg-3 col-md-6 m-b-20"><img id="<%= otherDocs[i] %>" alt="<%= otherDocs[i] %>" src="uploads/driver/documents/other-docs/<%= otherDocs[i] %>" class="img-responsive radius doc-image" onclick="displayImage(this)" /></div>
+                                                    <% } %>
+                                                </div>
+                                                <div id="myModal" class="modal">
+                                                    <span class="close">&times;</span>
+                                                    <img class="modal-content" id="img01">
+                                                    <div id="caption"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="sl-item">
+                                        <div class="sl-right">
+                                            <div><a href="#" class="link">Truck</a> <span class="sl-date"><small>5 minutes ago</small></span>
+                                                <p></p>
+                                                <div class="row">
+                                                    <% for (var i=0; i < truckDocs.length; i++ ) { %>
+                                                    <div class="col-lg-3 col-md-6 m-b-20"><img id="<%= truckDocs[i] %>" alt="<%= truckDocs[i] %>" src="uploads/truck/documents/<%= truckDocs[i] %>" class="img-responsive radius doc-image" onclick="displayImage(this)" /></div>
+                                                    <% } %>
+                                                </div>
+                                                <div id="myModal" class="modal">
+                                                    <span class="close">&times;</span>
+                                                    <img class="modal-content" id="img01">
+                                                    <div id="caption"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="sl-item">
+                                        <div class="sl-right">
+                                            <div><a href="#" class="link">Safety Sheet</a> <span class="sl-date"><small>5 minutes ago</small></span>
+                                                <p></p>
+                                                <div class="row">
+                                                    <% for (var i=0; i < safetySheet.length; i++ ) { %>
+                                                    <div class="col-lg-3 col-md-6 m-b-20"><img id="<%= safetySheet[i] %>" alt="<%= safetySheet[i] %>" src="uploads/manager/documents/safety-sheet/<%= safetySheet[i] %>" class="img-responsive radius doc-image" onclick="displayImage(this)" /></div>
+                                                    <% } %>
+                                                </div>
+                                                <div id="myModal" class="modal">
+                                                    <span class="close">&times;</span>
+                                                    <img class="modal-content" id="img01">
+                                                    <div id="caption"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Column -->
+            </div>
+
+            <!-- End PAge Content -->
+        </div>
+        <!-- End Container fluid  -->
+        <% include ../../layout/footer.ejs %>
+    </div>
+</div>
+<!-- End Wrapper -->
+<% include ../../layout/foot.ejs %>
+
+<script>
+    function displayImage(element){
+        // Get the modal
+        var modal = document.getElementById('myModal');
+
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        var img = document.getElementById(element.id);
+
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+
+        img.onclick = function(){
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+        }
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+    }
+</script>
+</body>
+
+</html>
